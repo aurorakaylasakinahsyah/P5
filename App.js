@@ -11,8 +11,8 @@ import {
   extendTheme,
   VStack,
   Box,
+  Icon,
 } from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
 import { Platform } from "react-native";
 
 // Define the config
@@ -21,12 +21,12 @@ const config = {
   initialColorMode: "dark",
 };
 
-// extend the theme
+// Extend the theme
 export const theme = extendTheme({ config });
 
 export default function App() {
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={theme}>
       <Center
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
@@ -81,5 +81,18 @@ function ToggleDarkMode() {
       />
       <Text>Light</Text>
     </HStack>
+  );
+}
+
+// Placeholder NativeBaseIcon component (If not defined in components/NativeBaseIcon)
+function NativeBaseIcon() {
+  return (
+    <Icon
+      name="home"
+      size="lg"
+      color="primary.500"
+      _dark={{ color: "blueGray.300" }}
+      _light={{ color: "blueGray.800" }}
+    />
   );
 }
